@@ -18,13 +18,13 @@ class NetworkHelper {
         
         //grab data using global thread
         DispatchQueue.global(qos: .userInitiated).async {
-            urlSession.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+            self.urlSession.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
                 guard let data = data else {
                     errorHandler(.noDataReceived)
                     return
                 }
                 
-                guard let response = response as? HTTPURLResponse, let response.statusCode == 200 else {
+                guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
                     errorHandler(.badStatusCode)
                     return
                 }
