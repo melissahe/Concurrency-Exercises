@@ -11,7 +11,32 @@ import Foundation
 class NetworkHelper {
     private init() {}
     static let manager = NetworkHelper()
-    func getData(from urlString: String, completionHandler: @escaping (Data) -> Void, errorHandler: @escaping (Error) -> Void) {
+    let urlSession = URLSession(configuration: .default)
+    func getData(from url: URL, completionHandler: @escaping (Data) -> Void, errorHandler: @escaping (AppError) -> Void) {
         
+        let request = URLRequest(url: url)
+        
+        //grab data using global thread
+        DispatchQueue.global(qos: .userInitiated).async {
+            urlSession.dataTask(with: request) { (data: Data?, response: URLResponse?, error: Error?) in
+                guard let data = data else {
+                    errorHandler(.noDataReceived)
+                    return
+                }
+                
+                guard let response = response as? HTTPURLResponse, let response.statusCode == 200 else {
+                    errorHandler(.badStatusCode)
+                    return
+                }
+                
+                if let error = error {
+                    errorHandler(.other(rawError: error))
+                    return
+                }
+                
+                completionHandler(data)
+                
+            }.resume()
+        }
     }
 }
