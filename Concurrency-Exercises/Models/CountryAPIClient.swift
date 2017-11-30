@@ -23,7 +23,7 @@ class CountryAPIClient {
                 var countries: [Country] = []
                 do {
                     guard let countryDictArray = try JSONSerialization.jsonObject(with: data, options: []) as? [[String : Any]] else {
-                        errorHandler(.couldNotParseJSON)
+                        print("error could not cast json as [[String : Any]]")
                         return
                     }
                     
@@ -36,7 +36,7 @@ class CountryAPIClient {
                         countries.append(country)
                     }
                 } catch let error {
-                    errorHandler(.other(rawError: error))
+                    errorHandler(.couldNotParseJSON(rawError: error))
                 }
                 
                 DispatchQueue.main.async {

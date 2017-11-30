@@ -15,12 +15,12 @@ class Country {
     let region: String
     let subRegion: String
     let population: Int
-    let currencyCode: String
-    let currencySymbol: String
+    let currencyCode: String?
+    let currencySymbol: String?
     let currencyName: String
     let languages: [String]
     
-    init(name: String, countryCode: String, capital: String, region: String, subRegion: String, population: Int, currencyCode: String, currencySymbol: String, currencyName: String, languages: [String]) {
+    init(name: String, countryCode: String, capital: String, region: String, subRegion: String, population: Int, currencyCode: String?, currencySymbol: String?, currencyName: String, languages: [String]) {
         self.name = name
         self.countryCode = countryCode
         self.capital = capital
@@ -70,15 +70,9 @@ class Country {
             return nil
         }
         
-        guard let currencyCode = currencyDictArray[0]["code"] as? String else {
-            print("Error: cannot get currency code")
-            return nil
-        }
+        let currencyCode = currencyDictArray[0]["code"] as? String ?? "No currency code"
         
-        guard let currencySymbol = currencyDictArray[0]["symbol"] as? String else {
-            print("Error: cannot get currency symbol")
-            return nil
-        }
+        let currencySymbol = currencyDictArray[0]["symbol"] as? String ?? ""
         
         guard let currencyName = currencyDictArray[0]["name"] as? String else {
             print("Error: cannot get currency name")
