@@ -18,6 +18,7 @@
 		81A094651FD09F8C00AFCE3F /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A094641FD09F8C00AFCE3F /* AppError.swift */; };
 		81A094691FD0A7B200AFCE3F /* CountryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A094681FD0A7B200AFCE3F /* CountryTableViewCell.swift */; };
 		81A0946B1FD0A7DB00AFCE3F /* CountryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A0946A1FD0A7DB00AFCE3F /* CountryDetailViewController.swift */; };
+		81A0946D1FD0A92B00AFCE3F /* ImageAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A0946C1FD0A92B00AFCE3F /* ImageAPIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		81A094641FD09F8C00AFCE3F /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		81A094681FD0A7B200AFCE3F /* CountryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryTableViewCell.swift; sourceTree = "<group>"; };
 		81A0946A1FD0A7DB00AFCE3F /* CountryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryDetailViewController.swift; sourceTree = "<group>"; };
+		81A0946C1FD0A92B00AFCE3F /* ImageAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +87,7 @@
 			children = (
 				81A0945D1FD098EB00AFCE3F /* Country.swift */,
 				81A0945F1FD09F2300AFCE3F /* CountryAPIClient.swift */,
+				81A0946C1FD0A92B00AFCE3F /* ImageAPIClient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -184,6 +187,7 @@
 				81A094631FD09F3F00AFCE3F /* NetworkHelper.swift in Sources */,
 				81A094601FD09F2300AFCE3F /* CountryAPIClient.swift in Sources */,
 				81A094691FD0A7B200AFCE3F /* CountryTableViewCell.swift in Sources */,
+				81A0946D1FD0A92B00AFCE3F /* ImageAPIClient.swift in Sources */,
 				81A0946B1FD0A7DB00AFCE3F /* CountryDetailViewController.swift in Sources */,
 				81A0944C1FD097AD00AFCE3F /* AppDelegate.swift in Sources */,
 			);

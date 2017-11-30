@@ -50,6 +50,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Countries" id="MhY-RL-wa0"/>
                     <connections>
+                        <outlet property="countrySearchBar" destination="cZj-8d-0wh" id="YvY-yz-bl3"/>
+                        <outlet property="countryTableView" destination="jZr-aQ-bl4" id="ER3-ZC-Tzy"/>
                         <segue destination="yUP-pv-ry1" kind="show" identifier="detailedSegue" id="p3v-no-VIB"/>
                     </connections>
                 </viewController>

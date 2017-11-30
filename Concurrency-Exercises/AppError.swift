@@ -16,5 +16,6 @@ enum AppError: Error {
     case badURL
     case badStatusCode
     case noDataReceived
+    case cannotInitializeImage
     case other(rawError: Error)
 }
