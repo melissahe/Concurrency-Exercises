@@ -19,9 +19,8 @@ class Country {
     let currencySymbol: String
     let currencyName: String
     let languages: [String]
-    let flagImageURL: String
     
-    init(name: String, countryCode: String, capital: String, region: String, subRegion: String, population: Int, currencyCode: String, currencySymbol: String, currencyName: String, languages: [String], flagImageURL: String) {
+    init(name: String, countryCode: String, capital: String, region: String, subRegion: String, population: Int, currencyCode: String, currencySymbol: String, currencyName: String, languages: [String]) {
         self.name = name
         self.countryCode = countryCode
         self.capital = capital
@@ -32,7 +31,6 @@ class Country {
         self.currencySymbol = currencySymbol
         self.currencyName = currencyName
         self.languages = languages
-        self.flagImageURL = flagImageURL
     }
     
     convenience init?(from countryDict: [String : Any]) {
@@ -102,7 +100,7 @@ class Country {
             languages.append(language)
         }
         
-        self.init(name: name, countryCode: countryCode, capital: capital, region: region, subRegion: subRegion, population: population, currencyCode: currencyCode, currencySymbol: currencySymbol, currencyName: currencyName, languages: languages)
+         self.init(name: name, countryCode: countryCode, capital: capital, region: region, subRegion: subRegion, population: population, currencyCode: currencyCode, currencySymbol: currencySymbol, currencyName: currencyName, languages: languages)
     }
     
 }
