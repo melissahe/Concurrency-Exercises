@@ -11,7 +11,10 @@ import Foundation
 class WoeID {
     private init() {}
     static let manager = WoeID()
-    func getWoeID(of city: String, completionHandler: @escaping (String?) -> Void, errorHandler: @escaping (AppError) -> Void) {
+    func getWoeID(of city: String, completionHandler: @escaping (Int?) -> Void, errorHandler: @escaping (AppError) -> Void) {
+        
+        let cityArray = city.components(separatedBy: ",")
+        let city = cityArray[0].replacingOccurrences(of: " ", with: "%20")
         
         let urlString = "https://www.metaweather.com/api/location/search/?query=\(city)"
         
@@ -29,9 +32,13 @@ class WoeID {
                         return
                     }
                     
+                    if cityDictArray.isEmpty {
+                        completionHandler(nil)
+                        return
+                    }
                     
                     //                    DispatchQueue.main.async {
-                    guard let woeID = cityDictArray[0]["woeid"] as? String else {
+                    guard let woeID = cityDictArray[0]["woeid"] as? Int else {
                         
                         completionHandler(nil)
                         return
@@ -76,16 +83,19 @@ class WeatherAPIClient {
                         do {
                             guard let weeklyForecastDict = try JSONSerialization.jsonObject(with: data, options: []) as? [String : Any] else {
                                 print("Error: could not cast json as [String : Any]")
+                                completionHandler(nil)
                                 return
                             }
                             
                             guard let weatherDictArray = weeklyForecastDict["consolidated_weather"] as? [[String: Any]] else {
                                 print("Error: could not cast as [[String: Any]]")
+                                completionHandler(nil)
                                 return
                             }
                             
                             guard let weather = Weather(from: weatherDictArray[0]) else {
                                 print("Error: could not initialize weather")
+                                completionHandler(nil)
                                 return
                             }
                             
