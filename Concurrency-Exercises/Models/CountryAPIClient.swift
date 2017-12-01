@@ -39,10 +39,10 @@ class CountryAPIClient {
                     errorHandler(.couldNotParseJSON(rawError: error))
                 }
                 
-                DispatchQueue.main.async {
+//                DispatchQueue.main.async {
                     completionHandler(countries)
-                }
+//                }
         },
-            errorHandler: errorHandler)
+            errorHandler: {errorHandler(.other(rawError: $0))} )
     }
 }

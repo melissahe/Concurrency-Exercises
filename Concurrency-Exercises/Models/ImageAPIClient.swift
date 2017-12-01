@@ -27,11 +27,11 @@ class ImageAPIClient {
                     
                 }
                 
-                DispatchQueue.main.async {
+//                DispatchQueue.main.async {
                     completionHandler(image)
-                }
+//                }
                 
         },
-            errorHandler: errorHandler)
+            errorHandler: {errorHandler(.other(rawError: $0))} )
     }
 }

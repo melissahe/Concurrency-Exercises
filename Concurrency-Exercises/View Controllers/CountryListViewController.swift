@@ -146,5 +146,6 @@ extension CountryListViewController: UISearchBarDelegate {
             searchTerm = ""
         }
     }
+    
 }
 

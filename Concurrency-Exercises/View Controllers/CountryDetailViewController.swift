@@ -10,8 +10,19 @@ import UIKit
 
 class CountryDetailViewController: UIViewController {
 
+    var country: Country!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    func setupUI() {
+        
+        loadImages()
+    }
+    
+    func loadImages() {
+        
     }
 
 }
