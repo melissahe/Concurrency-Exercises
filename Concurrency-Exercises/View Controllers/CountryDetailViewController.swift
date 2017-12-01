@@ -10,6 +10,22 @@ import UIKit
 
 class CountryDetailViewController: UIViewController {
 
+    //Country
+    @IBOutlet weak var countryFlagImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var capitalLabel: UILabel!
+    @IBOutlet weak var regionLabel: UILabel!
+    @IBOutlet weak var subRegionLabel: UILabel!
+    @IBOutlet weak var populationLabel: UILabel!
+    @IBOutlet weak var currencyNameLabel: UILabel!
+    
+    //Weather
+    @IBOutlet weak var weatherImageView: UIImageView!
+    @IBOutlet weak var weatherStateLabel: UILabel!
+    @IBOutlet weak var currentTempLabel: UILabel!
+    @IBOutlet weak var minTempLabel: UILabel!
+    @IBOutlet weak var maxTempLabel: UILabel!
+    
     var country: Country!
     
     override func viewDidLoad() {
@@ -22,7 +38,7 @@ class CountryDetailViewController: UIViewController {
     }
     
     func loadImages() {
-        
+        //to do
     }
 
 }

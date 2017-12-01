@@ -77,10 +77,27 @@ class CountryListViewController: UIViewController {
         })
     }
     
+    //Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if
+            let cell = sender as? CountryTableViewCell,
+            let currentIndexPath = countryTableView.indexPath(for: cell),
+            let destinationVC = segue.destination as? CountryDetailViewController {
+            destinationVC.country = countries[currentIndexPath.row]
+        }
+    }
+    
 }
 
 //Table View Methods
 extension CountryListViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    //Delegate Methods
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "detailedSegue", sender: tableView.cellForRow(at: indexPath))
+    }
+    
+    //Data Source Methods
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return countries.count
     }

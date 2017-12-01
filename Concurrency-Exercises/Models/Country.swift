@@ -15,12 +15,12 @@ class Country {
     let region: String
     let subRegion: String
     let population: Int
-    let currencyCode: String?
-    let currencySymbol: String?
+    let currencyCode: String
+    let currencySymbol: String
     let currencyName: String
     let languages: [String]
     
-    init(name: String, countryCode: String, capital: String, region: String, subRegion: String, population: Int, currencyCode: String?, currencySymbol: String?, currencyName: String, languages: [String]) {
+    init(name: String, countryCode: String, capital: String, region: String, subRegion: String, population: Int, currencyCode: String, currencySymbol: String, currencyName: String, languages: [String]) {
         self.name = name
         self.countryCode = countryCode
         self.capital = capital
